@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 # Ignorar módulos do Node.js
 node_modules/
 npm-debug.log
 yarn-error.log
 package-lock.json
 yarn.lock
+=======
+# Node modules
+/node_modules/
+>>>>>>> c049881caf60e7901ca4b11fd3f7e2a3a9cdbb9f
