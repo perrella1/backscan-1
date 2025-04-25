@@ -58,15 +58,13 @@
       // console.log("Longitude: " + longitude);
 
       // Envia a localização para o backend
-      fetch("https://backscan-1-perrella1s-projects.vercel.app/receber-localizacao", {
+      fetch("/api/receber-localizacao", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({ latitude, longitude })
       })
-
-
         .then(response => response.json())
         .then(data => {
           if (data.success) {
@@ -75,10 +73,10 @@
             alert("Algo deu errado. Tente novamente mais tarde.");
           }
         })
-
         .catch(error => {
           console.error("Erro:", error);
         });
+
     }
 
     function handleError(error) {
